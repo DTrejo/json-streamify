@@ -2,7 +2,7 @@
 
 A streaming version of `JSON.stringify`.
 
-    npm install
+    npm install json-streamify
 
 ## Methods
 
