@@ -8,7 +8,7 @@ var assert = require('assert')
   , size = 100
   , big = []
   ;
-  
+
 while(size--) {
   big.push(medium);
 }
@@ -17,15 +17,15 @@ module.exports = testCase({
   test_small_object: function(assert) {
     var str = '';
     streamify(small, function(data) { str += data; });
-  
+
     assert.equals(JSON.stringify(small), str
       , 'JSON.stringify and streamify return the same string for a small object');
     assert.done();
   }
-  , test_big_object: function(assert) {  
+  , test_big_object: function(assert) {
     var str = '';
     streamify(big, function(data) { str += data; });
-  
+
     assert.equals(JSON.stringify(big), str
       , 'JSON.stringify and streamify return the same string for a big object');
     assert.done();
@@ -45,22 +45,22 @@ module.exports = testCase({
       assert.equals(JSON.stringify(big), fs.readFileSync(path).toString('utf8')
         , 'Streaming write to file with big object returns same as JSON.stringify');
       fs.unlinkSync(path);
-      assert.done();      
+      assert.done();
     });
   }
-  , test_encode_object: function(assert) {  
+  , test_encode_object: function(assert) {
     var s = '';
     for (var i = 0; i < 255; i++) { s += String.fromCharCode(i); }
     var obj = { "a tricky string": s };
     var str = ''
     streamify(obj, function(data) { str += data; });
-  
+
     assert.equals(JSON.stringify(obj), str
       , 'Properly escapes strings');
-      
+
       assert.equals(JSON.parse(JSON.stringify(obj)), JSON.parse(str)
         , 'Properly parses strings');
     assert.done();
   }
-  
+
 });
