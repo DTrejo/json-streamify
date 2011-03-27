@@ -15,7 +15,11 @@
   "scripts": {
     "test": "nodeunit test/test.js"
   },
-  "engines": {
-    "node": "*"
-  }
+  "dependencies": {
+      "traverse": ">=0.2.6"
+    },
+    "devDependencies" : {
+      "nodeunit": ">=0.5.1"
+    },
+  "engines": { "node": ">=0.4.1" }
 }

@@ -48,4 +48,19 @@ module.exports = testCase({
       assert.done();      
     });
   }
+  , test_encode_object: function(assert) {  
+    var s = '';
+    for (var i = 0; i < 255; i++) { s += String.fromCharCode(i); }
+    var obj = { "a tricky string": s };
+    var str = ''
+    streamify(obj, function(data) { str += data; });
+  
+    assert.equals(JSON.stringify(obj), str
+      , 'Properly escapes strings');
+      
+      assert.equals(JSON.parse(JSON.stringify(obj)), JSON.parse(str)
+        , 'Properly parses strings');
+    assert.done();
+  }
+  
 });
