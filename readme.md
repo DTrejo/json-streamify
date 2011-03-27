@@ -33,3 +33,7 @@ When it finishes, it calls `callback`.
     });
 
 Most of this was written by [James Halliday](http://substack.net), with a few small things by [David Trejo](http://dtrejo.com/).
+
+### TODOs
+
+- allow a stream to be passed into `streamify(object, stream)`?

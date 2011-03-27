@@ -1,0 +1,21 @@
+{
+  "name": "json-streamify",
+  "description": "Streaming version of `JSON.stringify`",
+  "version": "0.1.0",
+  "homepage": "https://github.com/DTrejo/json-streamify",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DTrejo/json-streamify.git"
+  },
+  "author": "David Trejo <dtrejo@cs.brown.edu> (http://dtrejo.com/)",
+  "main": "streamify.js",
+  "directories": {
+    "lib": "."
+  },
+  "scripts": {
+    "test": "nodeunit test/test.js"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
