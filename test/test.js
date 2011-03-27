@@ -35,17 +35,17 @@ module.exports = testCase({
     streamingWrite(path, small, function() {
       assert.equals(JSON.stringify(small), fs.readFileSync(path).toString('utf8')
         , 'Streaming write to file with small object returns same as JSON.stringify');
+      fs.unlinkSync(path);
+      assert.done();
     });
-    fs.unlinkSync(path);
-    assert.done();
   }
   , test_big_streaming_write: function(assert) {
     path = './DELETEME.txt';
     streamingWrite(path, big, function() {
       assert.equals(JSON.stringify(big), fs.readFileSync(path).toString('utf8')
         , 'Streaming write to file with big object returns same as JSON.stringify');
+      fs.unlinkSync(path);
+      assert.done();      
     });
-    fs.unlinkSync(path);
-    assert.done();
   }
 });
