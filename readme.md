@@ -40,7 +40,6 @@ Most of this was written by [James Halliday](http://substack.net), with a few sm
 
 - allow a stream to be passed into `streamify(object, stream)`?
 - escapes strings correctly
-- package.json has deps
 - throw binary data at it and make sure JSON.parse() doesn't error when you read it back
   try using this string:
 
