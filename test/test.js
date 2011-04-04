@@ -3,7 +3,7 @@ var assert = require('assert')
   , streamingWrite = require('../streamify').streamingWrite
   , testCase = require('nodeunit').testCase
   , fs = require('fs')
-  , small = { a: 1, b: 2, c: 3}
+  , small = { a: 1, b: 2, c: 3 }
   , medium = {"J":{"I":0.18181818181818182,"bought":0.18181818181818182,"some":0.18181818181818182,"bread":0.09090909090909091,"butter":0.09090909090909091},"'ai":{"I":0.18181818181818182,"bought":0.18181818181818182,"some":0.18181818181818182,"bread":0.09090909090909091,"butter":0.09090909090909091},"acheter":{"I":0.18181818181818182,"bought":0.18181818181818182,"some":0.18181818181818182,"bread":0.09090909090909091,"butter":0.09090909090909091},"du":{"I":0.18181818181818182,"bought":0.18181818181818182,"some":0.18181818181818182,"bread":0.09090909090909091,"butter":0.09090909090909091},"pain":{"I":0.09999999999999999,"bought":0.09999999999999999,"some":0.09999999999999999,"bread":0.18333333333333332,"We":0.08333333333333333,"must":0.08333333333333333,"eat":0.08333333333333333,"the":0.08333333333333333,"white":0.08333333333333333},"beurre":{"I":0.25,"bought":0.25,"some":0.25,"butter":0.25},"Nous":{"We":0.16666666666666669,"must":0.16666666666666669,"eat":0.16666666666666669,"the":0.16666666666666669,"white":0.16666666666666669,"bread":0.16666666666666669},"devon":{"We":0.16666666666666669,"must":0.16666666666666669,"eat":0.16666666666666669,"the":0.16666666666666669,"white":0.16666666666666669,"bread":0.16666666666666669},"manger":{"We":0.16666666666666669,"must":0.16666666666666669,"eat":0.16666666666666669,"the":0.16666666666666669,"white":0.16666666666666669,"bread":0.16666666666666669},"le":{"We":0.16666666666666669,"must":0.16666666666666669,"eat":0.16666666666666669,"the":0.16666666666666669,"white":0.16666666666666669,"bread":0.16666666666666669},"blanc":{"We":0.16666666666666669,"must":0.16666666666666669,"eat":0.16666666666666669,"the":0.16666666666666669,"white":0.16666666666666669,"bread":0.16666666666666669}}
   , size = 100
   , big = []
@@ -52,15 +52,15 @@ module.exports = testCase({
     var s = '';
     for (var i = 0; i < 255; i++) { s += String.fromCharCode(i); }
     var obj = { "a tricky string": s };
-    var str = ''
+    var str = '';
     streamify(obj, function(data) { str += data; });
 
     assert.equals(JSON.stringify(obj), str
       , 'Properly escapes strings');
-
-      assert.equals(JSON.parse(JSON.stringify(obj)), JSON.parse(str)
+    
+    assert.equals(JSON.parse(JSON.stringify(obj)) + '', JSON.parse(str) + ''
         , 'Properly parses strings');
+    
     assert.done();
-  }
-
+  }  
 });

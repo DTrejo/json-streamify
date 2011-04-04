@@ -39,13 +39,3 @@ Most of this was written by [James Halliday](http://substack.net), with a few sm
 ### TODOs
 
 - allow a stream to be passed into `streamify(object, stream)`?
-- escapes strings correctly
-- throw binary data at it and make sure JSON.parse() doesn't error when you read it back
-  try using this string:
-
-        var s = ''; for (var i = 0; i < 255; i++) { s += String.fromCharCode(i) }
-
-  and maybe this to fix it, along with something else.
-
-        .replace(/\\/gi, '\\\\')
-- fix the tests which fail on the above few todos
