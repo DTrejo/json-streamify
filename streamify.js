@@ -45,8 +45,10 @@ exports.streamingWrite = function streamingWrite(path, object, cb) {
 
   var stream = fs.createWriteStream(path, { flags: 'w+', encoding: 'utf8' });
 
-  stream.on('close', cb);
-  stream.on('error', cb);
+  if (cb) {
+    stream.on('close', cb);
+    stream.on('error', cb);
+  }
 
   exports.streamify(object, function(chunk) {
     stream.write(chunk);
