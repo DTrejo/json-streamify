@@ -35,6 +35,9 @@ exports.streamify = function streamify(obj, emit) {
     } else if (typeof node == 'function') {
       emit('null');
 
+    } else if (node.toString) {
+      emit(node.toString());
+
     } else {
       emit(node);
     }

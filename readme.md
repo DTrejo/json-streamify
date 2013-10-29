@@ -1,5 +1,7 @@
 # JSON Streamify
 
+[![Build Status](https://travis-ci.org/DTrejo/json-streamify.png)](http://travis-ci.org/DTrejo/json-streamify)
+
 A streaming version of `JSON.stringify`.
 
     npm install json-streamify
